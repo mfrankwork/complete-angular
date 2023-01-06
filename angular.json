@@ -88,5 +88,8 @@
       }
     }
   },
-  "defaultProject": "complete-angular"
+  "defaultProject": "complete-angular",
+  "cli": {
+    "analytics": false
+  }
 }
