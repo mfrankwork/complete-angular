@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { RecipesComponent } from './recipes/recipes.component';
@@ -19,12 +19,16 @@ const appRoutes: Routes = [
       {
         path: ':id',
         component: RecipeDetailComponent,
-        resolve: [RecipesResolverService]
+        resolve: {
+          recipes: () => inject(RecipesResolverService).resolve()
+        }
       },
       {
         path: ':id/edit',
         component: RecipeEditComponent,
-        resolve: [RecipesResolverService]
+        resolve: {
+          recipes: () => inject(RecipesResolverService).resolve()
+        }
       }
     ]
   },
